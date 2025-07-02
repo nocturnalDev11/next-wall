@@ -20,7 +20,7 @@ interface RootLayoutProps {
 export default function RootLayout({ children }: RootLayoutProps) {
     return (
         <html lang="en">
-            <body className={`${inter.variable} antialiased mx-auto mt-10`}>
+            <body className={`${inter.variable} antialiased mx-auto`}>
                 <Providers>
                     <Navbar />
                     {children}
