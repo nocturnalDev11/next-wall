@@ -2,6 +2,7 @@ import NavLink from "./ui/Navlink";
 
 export default function Navbar() {
     const navigationLinks = [
+        { path: "/", name: "Landing page" },
         { path: "/home", name: "Home" },
         { path: "/profile", name: "Profile" },
     ];

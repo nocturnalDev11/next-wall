@@ -1,7 +1,6 @@
 "use client"
 
 import { motion, Variants } from "framer-motion";
-import ProfileContainer from "@/containers/profile";
 
 export default function Home() {
     const containerVariants: Variants = {
@@ -37,7 +36,10 @@ export default function Home() {
             animate="visible"
         >
             <motion.div variants={childVariants}>
-                <ProfileContainer />
+                <div className="flex flex-col items-center justify-center h-screen">
+                    <h1 className="text-2xl font-bold mb-4">Landing Page</h1>
+                    <p className="text-lg">This is the landing page content.</p>
+                </div>
             </motion.div>
         </motion.main>
     );
