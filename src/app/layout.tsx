@@ -19,7 +19,7 @@ interface RootLayoutProps {
 
 export default function RootLayout({ children }: RootLayoutProps) {
     return (
-        <html lang="en" className="scroll-smooth">
+        <html lang="en">
             <body className={`${inter.variable} antialiased mx-auto mt-10`}>
                 <Providers>
                     <Navbar />
