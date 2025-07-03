@@ -1,6 +1,7 @@
 "use client"
 
 import { motion, Variants } from "framer-motion";
+import Card from "@/components/ui/Card";
 
 export default function Home() {
     const containerVariants: Variants = {
@@ -37,8 +38,15 @@ export default function Home() {
         >
             <motion.div variants={childVariants}>
                 <div className="flex flex-col items-center justify-center h-screen">
-                    <h1 className="text-2xl font-bold mb-4">Landing Page</h1>
-                    <p className="text-lg">This is the landing page content.</p>
+                    <Card
+                        header="Landing Page"
+                        footer="Last updated 2 hours ago"
+                    >
+                        <p>
+                            This is a minimalist, reusable card component. You can place
+                            anything here, including forms, text, images, or actions.
+                        </p>
+                    </Card>
                 </div>
             </motion.div>
         </motion.main>

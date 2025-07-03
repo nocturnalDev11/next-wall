@@ -3,7 +3,7 @@
 import { motion, Variants } from "framer-motion"
 import HomeContainer from "@/containers/home"
 
-export default function Home() {
+export default function HomePage() {
     const containerVariants: Variants = {
         hidden: { opacity: 0, y: 20 },
         visible: {
