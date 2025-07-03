@@ -9,6 +9,7 @@ export function useUserProfile() {
     const [profile, setProfile] = useState<{
         id: string;
         username: string;
+        email: string;
         avatar_url: string | null;
         bio: string | null;
     } | null>(null);
@@ -20,12 +21,19 @@ export function useUserProfile() {
             const { data: { user } } = await supabase.auth.getUser();
             setUser(user);
             if (user) {
-                const { data, error } = await supabase
-                .from("profiles")
-                .select("*")
-                .eq("id", user.id)
-                .single();
-                if (!error) setProfile(data);
+                const { data: profileData, error } = await supabase
+                    .from("profiles")
+                    .select("*")
+                    .eq("id", user.id)
+                    .single();
+                // if (!error)
+                //     setProfile(data);
+                if (!error) {
+                    setProfile({
+                        ...profileData,
+                        email: user.email
+                    });
+                }
             }
             setLoading(false);
         };

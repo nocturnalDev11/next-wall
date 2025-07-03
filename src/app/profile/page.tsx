@@ -37,11 +37,7 @@ export default function Profile() {
             animate="visible"
         >
             <motion.div variants={childVariants}>
-                <ProfileContainer
-                    // header="Hire Me"
-                    // title="Need a developer? Let’s make it happen."
-                    // description="Available for freelance work, dev commissions, or technical collaborations. Skip the pleasantries — drop the details, let’s get to work."
-                />
+                <ProfileContainer />
             </motion.div>
         </motion.main>
     );
