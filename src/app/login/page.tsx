@@ -3,10 +3,31 @@
 import { useState } from "react";
 import { login, signup } from "./actions";
 import Input from "@/components/ui/Input";
+import { useRouter } from "next/navigation";
+
 
 export default function LoginPage() {
+    const router = useRouter();
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+
+    const handleLogin = async (e: React.FormEvent) => {
+        e.preventDefault();
+        const formData = new FormData();
+        formData.append("email", email);
+        formData.append("password", password);
+        await login(formData);
+        router.push("/home"); 
+    }
+
+    const handleSignup = async (e: React.FormEvent) => {
+        e.preventDefault();
+        const formData = new FormData();
+        formData.append("email", email);
+        formData.append("password", password);
+        await signup(formData);
+        router.push("/profile"); 
+    }
 
     return (
         <form className="max-w-md mx-auto p-4 space-y-4">
@@ -16,6 +37,7 @@ export default function LoginPage() {
                 </label>
                 <Input
                     id="email"
+                    name="email"
                     type="email"
                     value={email}
                     onChange={setEmail}
@@ -32,6 +54,7 @@ export default function LoginPage() {
                 </label>
                 <Input
                     id="password"
+                    name="password"
                     type="password"
                     value={password}
                     onChange={setPassword}
@@ -43,15 +66,15 @@ export default function LoginPage() {
 
             <div className="flex gap-2">
                 <button
-                    type="submit"
-                    formAction={login}
+                    type="button"
+                    onClick={handleLogin}
                     className="bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded transition"
                 >
                     Log in
                 </button>
                 <button
-                    type="submit"
-                    formAction={signup}
+                    type="button"
+                    onClick={handleSignup}
                     className="bg-gray-200 hover:bg-gray-300 text-gray-800 px-4 py-2 rounded transition"
                 >
                     Sign up
